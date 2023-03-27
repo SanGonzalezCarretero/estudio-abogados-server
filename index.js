@@ -6,6 +6,8 @@ const mysql = require("mysql2");
 
 const cors = require("cors");
 
+// const nodemailer = require("nodemailer");
+
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
@@ -30,9 +32,33 @@ app.post("/create", (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
-      } else {
-        res.send("Values Inserted");
       }
+      // else {
+      //   const transporter = nodemailer.createTransport({
+      //     service: "gmail",
+      //     auth: {
+      //       user: "gcwebdevelopment.santiago@gmail.com",
+      //       pass: "losmismosdesiempre6",
+      //     },
+      //   });
+
+      //   const mailOptions = {
+      //     from: "gcwebdevelopment.santiago@gmail.com",
+      //     to: "santiagogonzalezc22@gmail.com",
+      //     subject: "GGT Estudios | Contacto",
+      //     text: message,
+      //   };
+
+      //   transporter.sendMail(mailOptions, (error, info) => {
+      //     if (error) {
+      //       console.log(error);
+      //     } else {
+      //       console.log("Email sent: " + info.response);
+      //     }
+      //   });
+
+      //   res.send("Values inserted");
+      // }
     }
   );
 });
